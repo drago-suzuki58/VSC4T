@@ -50,19 +50,26 @@
     overflow-y: auto; /* 只在这里显示滚动条 */
 }
 
-/* 自定义滚动条样式 */
+/* 自定义滚动条样式 - 仅针对侧边栏和代码块 */
 .sidebar-explorer::-webkit-scrollbar,
-.sidebar-toc .section-content::-webkit-scrollbar {
+.sidebar-toc .section-content::-webkit-scrollbar,
+.hljs::-webkit-scrollbar,
+.code-pre-wrapper::-webkit-scrollbar {
     width: 6px;
+    height: 6px; /* 添加高度控制，用于横向滚动条 */
 }
 
 .sidebar-explorer::-webkit-scrollbar-track,
-.sidebar-toc .section-content::-webkit-scrollbar-track {
+.sidebar-toc .section-content::-webkit-scrollbar-track,
+.hljs::-webkit-scrollbar-track,
+.code-pre-wrapper::-webkit-scrollbar-track {
     background: transparent;
 }
 
 .sidebar-explorer::-webkit-scrollbar-thumb,
-.sidebar-toc .section-content::-webkit-scrollbar-thumb {
+.sidebar-toc .section-content::-webkit-scrollbar-thumb,
+.hljs::-webkit-scrollbar-thumb,
+.code-pre-wrapper::-webkit-scrollbar-thumb {
     background: var(--vscode-border);
     border-radius: 3px;
 }
@@ -131,6 +138,7 @@
 .editor-content {
     flex: 1;
     background: var(--vscode-bg);
+    min-width: 0; /* 防止Flex子元素被内容撑大 */
 }
 
 .tab-bar {
@@ -443,9 +451,9 @@ pre code,
     max-width: 100%;
     tab-size: 4;
     -moz-tab-size: 4;
-    white-space: pre-wrap; /* 允许代码自动换行 */
-    word-break: break-word; /* 允许在单词内换行 */
-    word-wrap: break-word;
+    white-space: pre !important; /* 禁止自动换行，确保行号对齐 */
+    word-break: keep-all !important; /* 禁止单词断行 */
+    word-wrap: normal !important;
     overflow-x: auto;
     padding: 0.5em;
     min-width: 100%;
@@ -888,9 +896,9 @@ pre code,
     max-width: 100%;
     tab-size: 4;
     -moz-tab-size: 4;
-    white-space: pre-wrap; /* 允许代码自动换行 */
-    word-break: break-word; /* 允许在单词内换行 */
-    word-wrap: break-word;
+    white-space: pre !important; /* 禁止自动换行，确保行号对齐 */
+    word-break: keep-all !important; /* 禁止单词断行 */
+    word-wrap: normal !important;
     overflow-x: auto;
     padding: 0.5em;
     min-width: 100%;

@@ -262,6 +262,13 @@ pre.scrolled::before {
     opacity: 0.8;
 }
 
+/* Hide right fade when scrolled to end */
+.code-pre-wrapper.scroll-end::after,
+pre.scroll-end::after {
+    opacity: 0 !important;
+    transition: opacity 0.2s ease;
+}
+
 /* 确保代码块中的内容正确显示 */
 .code-pre-wrapper {
     display: flex;
@@ -292,7 +299,7 @@ pre.scrolled::before {
     width: 0; /* 初始宽度为0，通过flex-grow伸展 */
     min-width: 0; /* 允许内容区域收缩 */
     overflow-x: auto;
-    padding: 4px 8px !important; /* 减小垂直内边距与code.css保持一致 */
+    padding: 4px 64px 4px 8px !important; /* Increase right padding to 16px */
     margin: 0;
     box-sizing: border-box; /* 确保边框盒模型一致 */
 }
@@ -309,8 +316,8 @@ pre.scrolled::before {
 
 /* 超长代码换行控制 */
 .code-content code {
-    white-space: pre;
-    word-wrap: normal;
+    white-space: pre !important;
+    word-wrap: normal !important;
     tab-size: 4;
     line-height: 1.5;
 }

@@ -51,6 +51,16 @@ function enhancePlainCodeBlocks() {
       } else {
         this.classList.remove("scrolled");
       }
+
+      // Check if scrolled to end (right side) with buffer
+      if (
+        Math.ceil(this.scrollLeft + this.clientWidth) >=
+        this.scrollWidth - 2
+      ) {
+        this.classList.add("scroll-end");
+      } else {
+        this.classList.remove("scroll-end");
+      }
     });
 
     // 添加复制按钮 - 确保按钮不会与"code"标签重叠
@@ -203,6 +213,23 @@ function enhanceCodeBlocks() {
     // 同步滚动
     codePre.addEventListener("scroll", function () {
       lineNumbersPre.scrollTop = this.scrollTop;
+
+      // Add scroll indicators
+      if (this.scrollLeft > 0) {
+        codeBlockWrapper.classList.add("scrolled");
+      } else {
+        codeBlockWrapper.classList.remove("scrolled");
+      }
+
+      // Check if scrolled to end (right side) with buffer
+      if (
+        Math.ceil(this.scrollLeft + this.clientWidth) >=
+        this.scrollWidth - 2
+      ) {
+        codeBlockWrapper.classList.add("scroll-end");
+      } else {
+        codeBlockWrapper.classList.remove("scroll-end");
+      }
     });
     // 处理折叠/展开功能
     const toggleBtn = header.querySelector(".toggle-btn");
@@ -318,6 +345,16 @@ function addScrollIndicators() {
         this.classList.add("scrolled");
       } else {
         this.classList.remove("scrolled");
+      }
+
+      // Check if scrolled to end
+      if (
+        Math.ceil(this.scrollLeft + this.clientWidth) >=
+        this.scrollWidth - 2
+      ) {
+        this.classList.add("scroll-end");
+      } else {
+        this.classList.remove("scroll-end");
       }
     });
   });
