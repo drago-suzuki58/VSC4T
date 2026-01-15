@@ -101,7 +101,6 @@
 }
 
 .tag-item span {
-    flex-grow: 1; /* Allow tag name to take available space */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -7,7 +7,7 @@
 
 /* 左侧资源管理器样式 */
 .sidebar-explorer {
-    width: 250px;
+    width: 260px;
     background: var(--vscode-sidebar);
     border-right: 1px solid var(--vscode-border);
     padding: 10px 0;
@@ -17,18 +17,52 @@
     overflow-y: auto; /* 允许内容滚动 */
     scrollbar-width: thin; /* Firefox 细滚动条 */
     scrollbar-color: var(--vscode-border) transparent; /* Firefox 滚动条颜色 */
+    flex-shrink: 0; /* 防止被压缩 */
+}
+
+/* 右侧 TOC 侧边栏样式 */
+.sidebar-toc {
+    width: 300px;
+    background: var(--vscode-sidebar);
+    border-left: 1px solid var(--vscode-border);
+    padding: 10px 0;
+    position: sticky;
+    top: 48px;
+    height: calc(100vh - 48px);
+    overflow: hidden; /* 防止出现双重滚动条 */
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+/* 确保 explorer-section 占满高度 */
+.sidebar-toc .explorer-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+
+/* TOC专用样式，允许更长的高度并控制滚动 */
+.sidebar-toc .section-content {
+    flex: 1; /* 占据剩余空间 */
+    max-height: 90%; /* 减去头部高度，防止溢出 */
+    overflow-y: auto; /* 只在这里显示滚动条 */
 }
 
 /* 自定义滚动条样式 */
-.sidebar-explorer::-webkit-scrollbar {
+.sidebar-explorer::-webkit-scrollbar,
+.sidebar-toc .section-content::-webkit-scrollbar {
     width: 6px;
 }
 
-.sidebar-explorer::-webkit-scrollbar-track {
+.sidebar-explorer::-webkit-scrollbar-track,
+.sidebar-toc .section-content::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.sidebar-explorer::-webkit-scrollbar-thumb {
+.sidebar-explorer::-webkit-scrollbar-thumb,
+.sidebar-toc .section-content::-webkit-scrollbar-thumb {
     background: var(--vscode-border);
     border-radius: 3px;
 }

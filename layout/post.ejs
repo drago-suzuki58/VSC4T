@@ -3,17 +3,6 @@
 <div class="vscode-container">
   <!-- 左侧资源管理器 -->
   <div class="sidebar-explorer">
-    <!-- TOC导航 -->
-    <div class="explorer-section">
-      <div class="section-header">
-        <i class="fas fa-list"></i>
-        <span>TABLE OF CONTENTS</span>
-      </div>
-      <div class="section-content">
-        <%- toc(page.content, {list_number: false}) %>
-      </div>
-    </div>
-
     <!-- 同分类文章 -->
     <% if (page.categories && page.categories.length) { %>
     <div class="explorer-section">
@@ -144,6 +133,19 @@
         <!-- 评论区 -->
         <%- partial('_partial/comments') %>
       </article>
+    </div>
+  </div>
+
+  <!-- 右侧 TOC -->
+  <div class="sidebar-toc">
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-list"></i>
+        <span>TABLE OF CONTENTS</span>
+      </div>
+      <div class="section-content">
+        <%- toc(page.content, {list_number: false}) %>
+      </div>
     </div>
   </div>
 </div>
