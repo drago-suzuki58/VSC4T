@@ -6,7 +6,7 @@
         <%= config.title %>
       </a>
     </div>
-    
+
     <div class="nav-right">
       <a href="<%- config.root %>" class="nav-item <%= is_home() ? 'active' : '' %>">
         <i class="fas fa-home"></i>
@@ -56,9 +56,9 @@
     const header = document.querySelector('.vs-header');
     const nav = document.querySelector('.vs-nav');
     const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    
+
     nav.style.setProperty('--scroll-percent', `${scrollPercent}%`);
-    
+
     if (window.scrollY > 0) {
       header.classList.add('scrolled');
     } else {
@@ -72,14 +72,14 @@
       const ripple = document.createElement('span');
       ripple.classList.add('nav-ripple');
       this.appendChild(ripple);
-      
+
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       ripple.style.left = `${x}px`;
       ripple.style.top = `${y}px`;
-      
+
       setTimeout(() => ripple.remove(), 1000);
     });
   });

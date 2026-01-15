@@ -1,12 +1,12 @@
-<% 
+<%
 function calculateSimilarityScore(currentPost, comparePost) {
   let score = 0;
-  
+
   // 同系列文章 - 最高权重
   if (currentPost.series && comparePost.series === currentPost.series) {
     score += 1.0;
   }
-  
+
   // 同分类 - 中等权重
   if (currentPost.categories && comparePost.categories) {
     const currentCats = currentPost.categories.map(c => c.name);
@@ -14,7 +14,7 @@ function calculateSimilarityScore(currentPost, comparePost) {
     const commonCats = currentCats.filter(cat => compareCats.includes(cat));
     score += commonCats.length * 0.5;
   }
-  
+
   // 共同标签 - 每个标签加分
   if (currentPost.tags && comparePost.tags) {
     const currentTags = currentPost.tags.map(t => t.name);
@@ -22,30 +22,30 @@ function calculateSimilarityScore(currentPost, comparePost) {
     const commonTags = currentTags.filter(tag => compareTags.includes(tag));
     score += commonTags.length * 0.3;
   }
-  
+
   // 时间相近性 - 30天内的文章额外加分
   const daysDiff = Math.abs((currentPost.date - comparePost.date) / (1000 * 60 * 60 * 24));
   if (daysDiff <= 30) {
     score += 0.2 * (1 - daysDiff / 30);
   }
-  
+
   // 标题相似度 - 简单的关键词匹配
   if (currentPost.title && comparePost.title) {
     const currentWords = currentPost.title.toLowerCase().split(/\s+/);
     const compareWords = comparePost.title.toLowerCase().split(/\s+/);
-    const commonWords = currentWords.filter(word => 
+    const commonWords = currentWords.filter(word =>
       word.length > 3 && compareWords.includes(word)
     );
     score += commonWords.length * 0.1;
   }
-  
+
   return score;
 }
 
 function getRecommendedWithScores(currentPost, count = 6) {
   // 获取所有其他文章
   const allPosts = site.posts.filter(post => post.path !== currentPost.path);
-  
+
   // 计算每篇文章的相似度分数
   const postsWithScores = allPosts.map(post => ({
     post: post,
@@ -53,13 +53,13 @@ function getRecommendedWithScores(currentPost, count = 6) {
     // 计算相似度百分比（假设最高分是3.0）
     similarity: Math.min(100, Math.round(calculateSimilarityScore(currentPost, post) / 3.0 * 100))
   }));
-  
+
   // 按分数排序并过滤掉分数为0的
   const sortedPosts = postsWithScores
     .filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, count);
-  
+
   // 如果相关文章不足，补充最新文章
   if (sortedPosts.length < count) {
     const recentPosts = allPosts
@@ -73,7 +73,7 @@ function getRecommendedWithScores(currentPost, count = 6) {
       }));
     sortedPosts.push(...recentPosts);
   }
-  
+
   return sortedPosts;
 }
 
@@ -110,14 +110,14 @@ const recommendedPosts = getRecommendedWithScores(page);
       <span><%= __('recommended_posts') || 'RELATED POSTS' %></span>
     </div>
   </div>
-  
+
   <div class="vs-recommended-grid">
-    <% recommendedPosts.forEach(function(item, index) { 
+    <% recommendedPosts.forEach(function(item, index) {
       const post = item.post;
       const similarity = item.similarity;
       const excerpt = getExcerpt(post);
       const readingTime = getReadingTime(post.content || '');
-      
+
       // 根据分类选择图标
       let fileIcon = 'fa-file-code';
       if (post.categories && post.categories.length) {
@@ -139,11 +139,11 @@ const recommendedPosts = getRecommendedWithScores(page);
               <i class="fas <%= fileIcon %>"></i>
               <span><%= post.title %></span>
             </div>
-            
+
             <div class="vs-recommended-excerpt">
               <%= excerpt %>
             </div>
-            
+
             <div class="vs-recommended-meta">
               <% if (post.series) { %>
                 <span class="vs-series-badge">
@@ -151,7 +151,7 @@ const recommendedPosts = getRecommendedWithScores(page);
                   <%= post.series %>
                 </span>
               <% } %>
-              
+
               <% if (post.tags && post.tags.length) { %>
                 <span class="vs-tags-preview">
                   <i class="fas fa-tags"></i>
@@ -161,7 +161,7 @@ const recommendedPosts = getRecommendedWithScores(page);
                   <% } %>
                 </span>
               <% } %>
-              
+
               <span class="vs-meta-info">
                 <span class="vs-date">
                   <i class="fas fa-calendar-alt"></i>
@@ -178,7 +178,7 @@ const recommendedPosts = getRecommendedWithScores(page);
       </div>
     <% }) %>
   </div>
-  
+
   <!-- 查看更多 -->
   <div class="vs-recommended-footer">
     <a href="<%- url_for('/archives/') %>" class="vs-view-more">
@@ -194,42 +194,42 @@ const recommendedPosts = getRecommendedWithScores(page);
 document.addEventListener('DOMContentLoaded', function() {
   const items = document.querySelectorAll('.vs-recommended-item');
   let currentIndex = -1;
-  
+
   // 键盘事件
   document.addEventListener('keydown', function(e) {
     if (!items.length) return;
-    
+
     if (e.key === 'Tab') {
       // Tab键导航由浏览器处理
       return;
     }
-    
+
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       e.preventDefault();
-      
+
       // 移除当前高亮
       if (currentIndex >= 0) {
         items[currentIndex].classList.remove('vs-focused');
       }
-      
+
       // 更新索引
       if (e.key === 'ArrowRight') {
         currentIndex = (currentIndex + 1) % items.length;
       } else {
         currentIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
       }
-      
+
       // 添加新高亮
       items[currentIndex].classList.add('vs-focused');
       items[currentIndex].focus();
     }
-    
+
     if (e.key === 'Enter' && currentIndex >= 0) {
       const link = items[currentIndex].querySelector('a');
       if (link) link.click();
     }
   });
-  
+
   // 鼠标悬停时更新当前索引
   items.forEach((item, index) => {
     item.addEventListener('mouseenter', function() {

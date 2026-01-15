@@ -28,7 +28,7 @@
         <span>tag: <%= escape(page.tag) %>.md</span>
       </div>
     </div>
-    
+
     <div class="content-area">
       <div class="tag-header">
         <h1>
@@ -47,7 +47,7 @@
                 <a href="<%- url_for(post.path) %>"><%= post.title %></a>
               </span>
             </div>
-            
+
             <div class="post-meta">
               <span class="date">
                 <i class="fas fa-calendar-alt"></i>
@@ -64,11 +64,11 @@
                 </span>
               <% } %>
             </div>
-            
+
             <div class="post-excerpt">
               <%- post.excerpt || strip_html(post.content).substr(0, 200) %>...
             </div>
-            
+
             <div class="post-footer">
               <a href="<%- url_for(post.path) %>" class="read-more">
                 <i class="fas fa-code"></i>

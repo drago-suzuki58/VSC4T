@@ -1,9 +1,11 @@
 .vscode-markdown {
-  color: var(--vscode-text);
-  line-height: 1.65;  /* 优化行高，提高行间距，增加可读性 */
-  font-size: 16px;    /* 调整为更舒适的阅读大小 */
-  letter-spacing: 0.01em; /* 微调字母间距，提高可读性 */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; /* 使用系统UI字体，提高可读性 */
+    color: var(--vscode-text);
+    line-height: 1.65; /* 优化行高，提高行间距，增加可读性 */
+    font-size: 16px; /* 调整为更舒适的阅读大小 */
+    letter-spacing: 0.01em; /* 微调字母间距，提高可读性 */
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Helvetica Neue", sans-serif; /* 使用系统UI字体，提高可读性 */
 }
 
 .vscode-markdown h1,
@@ -12,39 +14,39 @@
 .vscode-markdown h4,
 .vscode-markdown h5,
 .vscode-markdown h6 {
-  color: var(--vscode-text);
-  font-weight: 600;
-  margin: 1.8em 0 0.9em; /* 进一步优化标题前后间距，增加前置空间 */
-  position: relative;
-  padding-left: 1.5em; /* 保持左内边距适中 */
-  line-height: 1.4; /* 标题行高略微紧凑，但保持清晰 */
-  letter-spacing: 0.01em; /* 微调标题字母间距 */
+    color: var(--vscode-text);
+    font-weight: 600;
+    margin: 1.8em 0 0.9em; /* 进一步优化标题前后间距，增加前置空间 */
+    position: relative;
+    padding-left: 1.5em; /* 保持左内边距适中 */
+    line-height: 1.4; /* 标题行高略微紧凑，但保持清晰 */
+    letter-spacing: 0.01em; /* 微调标题字母间距 */
 }
 
 /* 为不同级别标题设置更小的字体大小 */
 .vscode-markdown h1 {
-  font-size: 1.8em; /* 原来一般为2em */
+    font-size: 1.8em; /* 原来一般为2em */
 }
 
 .vscode-markdown h2 {
-  font-size: 1.5em; /* 原来一般为1.75em */
+    font-size: 1.5em; /* 原来一般为1.75em */
 }
 
 .vscode-markdown h3 {
-  font-size: 1.3em; /* 原来一般为1.5em */
+    font-size: 1.3em; /* 原来一般为1.5em */
 }
 
 .vscode-markdown h4 {
-  font-size: 1.1em; /* 原来一般为1.25em */
+    font-size: 1.1em; /* 原来一般为1.25em */
 }
 
 .vscode-markdown h5 {
-  font-size: 1em; /* 原来一般为1em */
+    font-size: 1em; /* 原来一般为1em */
 }
 
 .vscode-markdown h6 {
-  font-size: 0.9em; /* 原来一般为0.875em */
-  color: var(--vscode-text-light); /* 稍微淡化最小标题 */
+    font-size: 0.9em; /* 原来一般为0.875em */
+    color: var(--vscode-text-light); /* 稍微淡化最小标题 */
 }
 
 .vscode-markdown h1::before,
@@ -53,250 +55,250 @@
 .vscode-markdown h4::before,
 .vscode-markdown h5::before,
 .vscode-markdown h6::before {
-  content: '#';
-  position: absolute;
-  left: 0.4em; /* 微调位置使视觉平衡更好 */
-  color: var(--vscode-link);
-  font-weight: bold;
-  font-size: 0.95em; /* 调整大小使其与文本更协调 */
-  opacity: 0.75; /* 进一步降低不透明度，减少视觉干扰 */
-  transform: translateY(0.05em); /* 微调垂直位置，与标题文本更加对齐 */
+    content: "#";
+    position: absolute;
+    left: 0.4em; /* 微调位置使视觉平衡更好 */
+    color: var(--vscode-link);
+    font-weight: bold;
+    font-size: 0.95em; /* 调整大小使其与文本更协调 */
+    opacity: 0.75; /* 进一步降低不透明度，减少视觉干扰 */
+    transform: translateY(0.05em); /* 微调垂直位置，与标题文本更加对齐 */
 }
 
 .vscode-markdown p {
-  margin: 1em 0 1.2em; /* 增加段落间的垂直空间，特别是底部空间 */
-  max-width: 70ch; /* 限制理想的行宽，大约为70个字符宽度，提高可读性 */
+    margin: 1em 0 1.2em; /* 增加段落间的垂直空间，特别是底部空间 */
+    max-width: 70ch; /* 限制理想的行宽，大约为70个字符宽度，提高可读性 */
 }
 
 .vscode-markdown a {
-  color: var(--vscode-link);
-  text-decoration: none;
-  border-bottom: 1px solid var(--vscode-selection);
-  padding-bottom: 1px;
-  transition: all 0.2s ease;
-  font-weight: 500;
+    color: var(--vscode-link);
+    text-decoration: none;
+    border-bottom: 1px solid var(--vscode-selection);
+    padding-bottom: 1px;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
 .vscode-markdown a:hover {
-  color: var(--vscode-link-hover);
-  border-bottom-color: var(--vscode-link-hover);
-  background: var(--vscode-selection);
+    color: var(--vscode-link-hover);
+    border-bottom-color: var(--vscode-link-hover);
+    background: var(--vscode-selection);
 }
 
 .vscode-markdown blockquote {
-  border-left: 4px solid var(--vscode-link);
-  margin: 1.5em 0 1.7em;
-  padding: 0.8em 1.2em;
-  background: var(--vscode-selection); /* 使用半透明的主题色作为背景 */
-  color: var(--vscode-text); /* 略微提亮引用文字颜色 */
-  border-radius: 0 4px 4px 0; /* 添加右侧圆角 */
-  box-shadow: 0 2px 8px var(--vscode-shadow); /* 添加微妙阴影 */
-  font-style: italic; /* 斜体强调引用文本 */
+    border-left: 4px solid var(--vscode-link);
+    margin: 1.5em 0 1.7em;
+    padding: 0.8em 1.2em;
+    background: var(--vscode-selection); /* 使用半透明的主题色作为背景 */
+    color: var(--vscode-text); /* 略微提亮引用文字颜色 */
+    border-radius: 0 4px 4px 0; /* 添加右侧圆角 */
+    box-shadow: 0 2px 8px var(--vscode-shadow); /* 添加微妙阴影 */
+    font-style: italic; /* 斜体强调引用文本 */
 }
 
 .vscode-markdown ul,
 .vscode-markdown ol {
-  padding-left: 2.2em;
-  margin: 1.2em 0 1.4em;
+    padding-left: 2.2em;
+    margin: 1.2em 0 1.4em;
 }
 
 .vscode-markdown li {
-  margin: 0.4em 0 0.6em;
-  padding-left: 0.3em;
-  position: relative;
+    margin: 0.4em 0 0.6em;
+    padding-left: 0.3em;
+    position: relative;
 }
 
 /* 优化列表项的视觉效果 */
 .vscode-markdown ul li::marker {
-  color: var(--vscode-link); /* 使列表符号带有主题色 */
-  opacity: 0.8;
+    color: var(--vscode-link); /* 使列表符号带有主题色 */
+    opacity: 0.8;
 }
 
 .vscode-markdown img {
-  max-width: 100%;
-  border: 1px solid var(--vscode-border);
-  border-radius: 6px;
-  margin: 1.5em auto;
-  display: block;
-  box-shadow: 0 3px 10px var(--vscode-shadow);
-  transition: all 0.3s ease;
+    max-width: 100%;
+    border: 1px solid var(--vscode-border);
+    border-radius: 6px;
+    margin: 1.5em auto;
+    display: block;
+    box-shadow: 0 3px 10px var(--vscode-shadow);
+    transition: all 0.3s ease;
 }
 
 .vscode-markdown img:hover {
-  transform: scale(1.01);
-  box-shadow: 0 5px 15px var(--vscode-shadow);
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px var(--vscode-shadow);
 }
 
 /* 文章导航样式 */
 .post-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2em;
-  padding-top: 2em;
-  border-top: 1px solid var(--vscode-border);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    padding-top: 2em;
+    border-top: 1px solid var(--vscode-border);
 }
 
 .post-nav a {
-  flex: 1;
-  padding: 1em;
-  color: var(--vscode-text);
-  text-decoration: none;
-  background: var(--vscode-active);
-  border: 1px solid var(--vscode-border);
-  border-radius: 4px;
-  transition: all 0.2s ease;
+    flex: 1;
+    padding: 1em;
+    color: var(--vscode-text);
+    text-decoration: none;
+    background: var(--vscode-active);
+    border: 1px solid var(--vscode-border);
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
 .post-nav a:hover {
-  background: var(--vscode-highlight);
-  transform: translateY(-2px);
+    background: var(--vscode-highlight);
+    transform: translateY(-2px);
 }
 
 .post-nav .prev {
-  margin-right: 1em;
+    margin-right: 1em;
 }
 
 .post-nav .next {
-  text-align: right;
+    text-align: right;
 }
 
 /* TOC样式优化 */
 .toc {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
 
 .toc-child {
-  list-style: none;
-  padding-left: 1em;
+    list-style: none;
+    padding-left: 1em;
 }
 
 .toc-link {
-  display: block;
-  padding: 4px 8px;
-  color: var(--vscode-text);
-  text-decoration: none;
-  font-size: 13px;
-  border-left: 2px solid transparent;
-  transition: all 0.2s ease;
+    display: block;
+    padding: 4px 8px;
+    color: var(--vscode-text);
+    text-decoration: none;
+    font-size: 13px;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
 }
 
 .toc-link:hover {
-  background: var(--vscode-active);
-  border-left-color: var(--vscode-link);
-  color: var(--vscode-text);
+    background: var(--vscode-active);
+    border-left-color: var(--vscode-link);
+    color: var(--vscode-text);
 }
 
 .toc-link.active {
-  background: var(--vscode-active);
-  border-left-color: var(--vscode-link);
-  color: var(--vscode-link);
+    background: var(--vscode-active);
+    border-left-color: var(--vscode-link);
+    color: var(--vscode-link);
 }
 
 /* 分类和标签垂直排列样式 */
 .categories-list,
 .tags-list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
 }
 
 .categories-list ul,
 .tags-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .categories-list li,
 .tags-list li {
-  margin-bottom: 0;
-  margin-right: 5px;
+    margin-bottom: 0;
+    margin-right: 5px;
 }
 
 .category-item-post a,
 .tag-item-post a {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--vscode-text);
-  padding: 0.3rem 0.5rem;
-  transition: all 0.2s ease;
-  border-left: 2px solid transparent;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--vscode-text);
+    padding: 0.3rem 0.5rem;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
 }
 
 .category-item-post a:hover,
 .tag-item-post a:hover {
-  background: var(--vscode-active);
-  border-left-color: var(--vscode-link);
-  color: var(--vscode-link);
+    background: var(--vscode-active);
+    border-left-color: var(--vscode-link);
+    color: var(--vscode-link);
 }
 
 /* 文章元信息样式优化 */
 .post-meta {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: row;  /* 修改为横向排列 */
-  flex-wrap: wrap;      /* 添加换行，确保在小屏幕上也能正常显示 */
-  gap: 1rem;            /* 增加间距，使横向排列时更美观 */
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row; /* 修改为横向排列 */
+    flex-wrap: wrap; /* 添加换行，确保在小屏幕上也能正常显示 */
+    gap: 1rem; /* 增加间距，使横向排列时更美观 */
 }
 
 .post-meta > span {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .post-meta i {
-  margin-right: 0.5rem;
-  margin-top: 0;        /* 移除顶部边距，因为现在是居中对齐 */
+    margin-right: 0.5rem;
+    margin-top: 0; /* 移除顶部边距，因为现在是居中对齐 */
 }
 
 .post-meta .categories i {
-  color: var(--vscode-warning);
+    color: var(--vscode-warning);
 }
 
 .post-meta .tags i {
-  color: var(--vscode-link);
+    color: var(--vscode-link);
 }
 
 /* 置顶文章指示器样式 */
 .sticky-indicator {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.5rem;
-  padding: 0.2rem 0.5rem;
-  background: var(--vscode-active);
-  border: 1px solid var(--vscode-border);
-  border-radius: 3px;
-  font-size: 0.75rem;
-  color: var(--vscode-link);
-  transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--vscode-active);
+    border: 1px solid var(--vscode-border);
+    border-radius: 3px;
+    font-size: 0.75rem;
+    color: var(--vscode-link);
+    transition: all 0.2s ease;
 }
 
 .sticky-indicator i {
-  font-size: 0.75rem;
-  transform: rotate(45deg);
-  margin-right: 0;
+    font-size: 0.75rem;
+    transform: rotate(45deg);
+    margin-right: 0;
 }
 
 .sticky-indicator:hover {
-  background: var(--vscode-bg-light);
-  border-color: var(--vscode-link);
-  box-shadow: 0 0 5px var(--vscode-selection);
+    background: var(--vscode-bg-light);
+    border-color: var(--vscode-link);
+    box-shadow: 0 0 5px var(--vscode-selection);
 }
 
 /* 在文章卡片中的置顶指示器 */
 .post-card .sticky-indicator {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 /* 在归档页面中的置顶指示器 */
 .archive-posts .sticky-indicator,
 .timeline-post .sticky-indicator {
-  font-size: 0.7rem;
-  padding: 0.1rem 0.3rem;
-  margin-left: 0.3rem;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.3rem;
+    margin-left: 0.3rem;
 }

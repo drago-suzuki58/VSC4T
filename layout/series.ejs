@@ -5,7 +5,7 @@
     <div class="explorer-title">
       <i class="fas fa-bookmark"></i> Series Explorer
     </div>
-    <% 
+    <%
     let series = {};
     site.posts.forEach(function(post){
       if (post.series) {
@@ -16,7 +16,7 @@
       }
     });
     %>
-    
+
     <div class="series-list">
       <% for (let seriesName in series) { %>
         <div class="series-item">
@@ -46,7 +46,7 @@
 function toggleSeries(element) {
   const postsDiv = element.parentElement.querySelector('.series-posts');
   const icon = element.querySelector('i');
-  
+
   if (postsDiv.style.display === 'none' || !postsDiv.style.display) {
     postsDiv.style.display = 'block';
     icon.classList.remove('fa-chevron-right');

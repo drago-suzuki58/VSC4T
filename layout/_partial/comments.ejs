@@ -4,7 +4,7 @@
       <i class="fas fa-comments"></i>
       <span><%= __('comments') || 'COMMENTS' %></span>
     </div>
-    
+
     <% if (theme.comments.provider === 'waline') { %>
       <!-- Waline 评论系统 -->
       <div id="waline"></div>
@@ -14,7 +14,7 @@
         walineCSS.rel = 'stylesheet';
         walineCSS.href = 'https://unpkg.com/@waline/client@v3/dist/waline.css';
         document.head.appendChild(walineCSS);
-        
+
         // 加载 Waline JS
         const walineScript = document.createElement('script');
         walineScript.type = 'module';
@@ -38,20 +38,20 @@
               pageview: <%= theme.comments.waline.pageview || false %>,
               comment: <%= theme.comments.waline.comment !== false %>,
               copyright: <%= theme.comments.waline.copyright || false %>,
-              
+
               // 自动适配主题
               dark: document.documentElement.getAttribute('data-theme') === 'dark' ? 'auto' : false,
-              
+
               // 评论框占位符
               placeholder: '<%= __("comment_placeholder") || "欢迎留言，无需登录即可评论~" %>',
-              
+
               // 元数据配置
               meta: ['nick', 'mail', 'link'],
-              
+
               // 表情配置
               emojiCDN: 'https://unpkg.com/@waline/emojis@1.2.0/',
             });
-            
+
             // 监听主题变化
             const observer = new MutationObserver((mutations) => {
               mutations.forEach((mutation) => {
@@ -64,7 +64,7 @@
                 }
               });
             });
-            
+
             observer.observe(document.documentElement, {
               attributes: true,
               attributeFilter: ['data-theme']
@@ -74,7 +74,7 @@
         walineScript.src = 'https://unpkg.com/@waline/client@v3/dist/waline.js';
         document.body.appendChild(walineScript);
       </script>
-    
+
     <% } else if (theme.comments.provider === 'disqus' && theme.comments.disqus.shortname) { %>
       <!-- Disqus 评论系统 -->
       <div id="disqus_thread"></div>

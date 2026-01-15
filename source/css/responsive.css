@@ -4,8 +4,8 @@
 }
 
 * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 /* 响应式设计 */
@@ -142,13 +142,14 @@
     }
 
     /* 标签和分类 */
-    .tag-item, 
+    .tag-item,
     .category-item {
         font-size: 12px;
     }
 
     /* 代码块 */
-    pre, code {
+    pre,
+    code {
         font-size: 13px;
     }
 }

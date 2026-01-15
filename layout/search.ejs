@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="explorer-section">
       <div class="section-header">
         <i class="fas fa-history"></i>
@@ -50,13 +50,13 @@
         <span>search.md</span>
       </div>
     </div>
-    
+
     <div class="content-area">
       <div class="vs-search-header">
         <h1><i class="fas fa-search"></i> <%= __('search') %></h1>
         <p><%= __('search_placeholder') %></p>
       </div>
-      
+
       <div id="vs-search-container" class="vs-search-container">
         <div class="vs-search-input-container">
           <i class="fas fa-search vs-search-icon"></i>
@@ -65,7 +65,7 @@
             <i class="fas fa-times"></i>
           </button>
         </div>
-        
+
         <div class="vs-search-status-bar">
           <div class="vs-search-status">
             <span id="vs-search-counter">0 <%= __('search_results') %></span>
@@ -76,7 +76,7 @@
             <span class="vs-keybind"><span class="vs-key">Esc</span> to <%= __('search_clear').toLowerCase() %></span>
           </div>
         </div>
-        
+
         <div id="vs-search-results" class="vs-search-results">
           <div class="vs-search-loading">
             <i class="fas fa-spinner fa-spin"></i>
@@ -116,7 +116,7 @@
     if (searchInput) {
       // Focus the search input
       setTimeout(() => searchInput.focus(), 100);
-      
+
       // Clear search with Escape key
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && document.activeElement === searchInput) {
@@ -126,7 +126,7 @@
         }
       });
     }
-    
+
     // 检查搜索数据可用性
     console.log('[VSC4T] 搜索初始化完成，搜索路径：', window.VSC4T_SEARCH.root + 'search.json');
   });

@@ -1,2 +1,1 @@
-
-console.log('Theme BlackCat is running!');
+console.log("Theme BlackCat is running!");

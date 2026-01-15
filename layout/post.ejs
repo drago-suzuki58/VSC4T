@@ -13,7 +13,7 @@
         <%- toc(page.content, {list_number: false}) %>
       </div>
     </div>
-    
+
     <!-- 同分类文章 -->
     <% if (page.categories && page.categories.length) { %>
     <div class="explorer-section">
@@ -22,14 +22,14 @@
         <span>CATEGORY POSTS</span>
       </div>
       <div class="section-content">
-        <% 
+        <%
           // 获取当前文章的第一个分类
           var currentCategory = page.categories.data[0];
           if (currentCategory) {
             // 获取该分类下的所有文章
             var categoryPosts = site.categories.findOne({name: currentCategory.name}).posts.sort('date', -1);
             // 限制显示数量，并过滤掉当前文章
-            categoryPosts.filter(post => post._id !== page._id).limit(8).each(function(post) { 
+            categoryPosts.filter(post => post._id !== page._id).limit(8).each(function(post) {
         %>
           <div class="file">
             <i class="fas fa-file-code"></i>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <% } %>
-    
+
     <!-- 标签列表 -->
     <% if (page.tags && page.tags.length) { %>
     <div class="explorer-section">
@@ -68,7 +68,7 @@
         <span><%= page.title %>.md</span>
       </div>
     </div>
-    
+
     <div class="content-area">
       <article class="post-content">
         <div class="post-header">
@@ -103,13 +103,13 @@
             <% } %>
           </div>
         </div>
-        
+
         <div class="post-body vscode-markdown">
           <%- page.content %>
         </div>
-        
+
         <!-- 文章导航 - 只在同分类有多篇文章时显示 -->
-        <% 
+        <%
           // 检查当前文章是否有分类，以及同分类是否有其他文章
           var showPostNav = false;
           if (page.categories && page.categories.length > 0) {
@@ -120,7 +120,7 @@
             }
           }
         %>
-        
+
         <% if (showPostNav && (page.prev || page.next)) { %>
         <nav class="post-nav">
           <% if (page.prev) { %>
@@ -137,10 +137,10 @@
           <% } %>
         </nav>
         <% } %>
-        
+
         <!-- 推荐文章 -->
         <%- partial('_partial/post/recommended') %>
-        
+
         <!-- 评论区 -->
         <%- partial('_partial/comments') %>
       </article>

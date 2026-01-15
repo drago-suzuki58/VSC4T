@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       try {
         const targetSelector = this.getAttribute('href');
         // Basic check for potentially invalid selectors (though not exhaustive)
-        if (targetSelector && targetSelector.length > 1) { 
+        if (targetSelector && targetSelector.length > 1) {
           const targetElement = document.querySelector(targetSelector);
           if (targetElement) {
             targetElement.scrollIntoView({

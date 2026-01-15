@@ -10,7 +10,7 @@
         <i class="fas fa-chevron-left"></i>
       </a>
     <% } %>
-    
+
     <% var i = 1 %>
     <% while (i <= page.total) { %>
       <% if (i === page.current) { %>
@@ -20,7 +20,7 @@
       <% } %>
       <% i++ %>
     <% } %>
-    
+
     <% if (page.next) { %>
       <a class="page-btn next" href="<%- url_for(page.next_link) %>">
         <i class="fas fa-chevron-right"></i>
