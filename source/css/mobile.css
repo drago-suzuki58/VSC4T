@@ -1,44 +1,15 @@
-.mobile-menu-toggle {
-    display: none;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-    padding: 10px;
-    background: var(--vscode-bg-light);
-    border-radius: 4px;
-    cursor: pointer;
-    color: var(--vscode-text);
-    border: 1px solid var(--vscode-border);
-}
-
 @media screen and (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-    }
-
     .sidebar-explorer {
-        position: fixed;
-        left: -100%;
-        top: 48px; /* 与头部导航栏对齐 */
-        height: calc(100vh - 48px);
-        width: 80%;
-        max-width: 300px;
-        z-index: 999;
-        transition: left 0.3s ease;
-        background: var(--vscode-sidebar);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        border-right: 1px solid var(--vscode-border);
+        display: none; /* Hide sidebar completely on mobile as we moved navigation to header menu */
     }
 
-    .sidebar-explorer.show {
-        left: 0;
-        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    .sidebar-toc {
+        display: none; /* Hide sidebar TOC on mobile as we moved it to header menu */
     }
 
     .wrapper {
-        padding-top: 50px;
+        padding-top: 20px; /* Reset padding as header is fixed */
+        margin-top: 48px; /* Add margin for fixed header */
     }
 
     /* 优化移动端文章内容 */

@@ -8,50 +8,110 @@
     </div>
 
     <div class="nav-right">
-      <a href="<%- config.root %>" class="nav-item <%= is_home() ? 'active' : '' %>">
+      <!-- Desktop Navigation -->
+      <div class="desktop-nav">
+        <a href="<%- config.root %>" class="nav-item <%= is_home() ? 'active' : '' %>">
+          <i class="fas fa-home"></i>
+          <span><%- __('home') %></span>
+        </a>
+        <a href="<%- config.root + 'archives/' %>" class="nav-item <%= is_archive() ? 'active' : '' %>">
+          <i class="fas fa-archive"></i>
+          <span><%- __('archives') %></span>
+        </a>
+        <a href="<%- config.root + 'categories/' %>" class="nav-item <%= is_category() ? 'active' : '' %>">
+          <i class="fas fa-folder"></i>
+          <span><%- __('categories') %></span>
+        </a>
+        <a href="<%- config.root + 'tags/' %>" class="nav-item <%= is_tag() ? 'active' : '' %>">
+          <i class="fas fa-tags"></i>
+          <span><%- __('tags') %></span>
+        </a>
+        <a href="<%- config.root + 'search/' %>" class="nav-item <%= is_current('search') ? 'active' : '' %>">
+          <i class="fas fa-search"></i>
+          <span><%- __('search') %></span>
+        </a>
+        <a href="<%- config.root + 'about/' %>" class="nav-item <%= is_current('about') ? 'active' : '' %>">
+          <i class="fas fa-info-circle"></i>
+          <span><%- __('about') %></span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="mobile-menu-dropdown">
+    <div class="mobile-nav-links">
+      <a href="<%- config.root %>" class="mobile-nav-item <%= is_home() ? 'active' : '' %>">
         <i class="fas fa-home"></i>
         <span><%- __('home') %></span>
       </a>
-      <a href="<%- config.root + 'archives/' %>" class="nav-item <%= is_archive() ? 'active' : '' %>">
+      <a href="<%- config.root + 'archives/' %>" class="mobile-nav-item <%= is_archive() ? 'active' : '' %>">
         <i class="fas fa-archive"></i>
         <span><%- __('archives') %></span>
       </a>
-      <a href="<%- config.root + 'categories/' %>" class="nav-item <%= is_category() ? 'active' : '' %>">
+      <a href="<%- config.root + 'categories/' %>" class="mobile-nav-item <%= is_category() ? 'active' : '' %>">
         <i class="fas fa-folder"></i>
         <span><%- __('categories') %></span>
       </a>
-      <a href="<%- config.root + 'tags/' %>" class="nav-item <%= is_tag() ? 'active' : '' %>">
+      <a href="<%- config.root + 'tags/' %>" class="mobile-nav-item <%= is_tag() ? 'active' : '' %>">
         <i class="fas fa-tags"></i>
         <span><%- __('tags') %></span>
       </a>
-      <a href="<%- config.root + 'search/' %>" class="nav-item <%= is_current('search') ? 'active' : '' %>">
+      <a href="<%- config.root + 'search/' %>" class="mobile-nav-item <%= is_current('search') ? 'active' : '' %>">
         <i class="fas fa-search"></i>
         <span><%- __('search') %></span>
       </a>
-      <a href="<%- config.root + 'about/' %>" class="nav-item <%= is_current('about') ? 'active' : '' %>">
+      <a href="<%- config.root + 'about/' %>" class="mobile-nav-item <%= is_current('about') ? 'active' : '' %>">
         <i class="fas fa-info-circle"></i>
         <span><%- __('about') %></span>
       </a>
     </div>
-  </nav>
+
+    <!-- Mobile TOC Section (Only shown on post pages) -->
+    <% if (is_post()) { %>
+    <div class="mobile-toc-section">
+      <div class="mobile-toc-header">
+        <i class="fas fa-list"></i>
+        <span>TABLE OF CONTENTS</span>
+      </div>
+      <div class="mobile-toc-content">
+        <%- toc(page.content, {list_number: false}) %>
+      </div>
+    </div>
+    <% } %>
+  </div>
 </header>
 
 <script>
+  // Smooth scroll function
   function smoothScroll(event, target) {
     event.preventDefault();
     const targetId = target.substring(target.indexOf('#') + 1);
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
+      // Close mobile menu if open
+      document.querySelector('.mobile-menu-dropdown').classList.remove('show');
+
+      const headerOffset = 60; // Adjust based on header height
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
       window.scrollTo({
-        top: targetElement.offsetTop - 50, // 调整偏移量
-        behavior: 'smooth'
+        top: offsetPosition,
+        behavior: "smooth"
       });
     } else {
       window.location.href = target;
     }
   }
 
+  // Header scroll effect
   window.addEventListener('scroll', function() {
     const header = document.querySelector('.vs-header');
     const nav = document.querySelector('.vs-nav');
@@ -66,21 +126,41 @@
     }
   });
 
-  // 添加标签页切换动画
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-      const ripple = document.createElement('span');
-      ripple.classList.add('nav-ripple');
-      this.appendChild(ripple);
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const dropdown = document.querySelector('.mobile-menu-dropdown');
 
-      const rect = this.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    if(menuBtn) {
+      menuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
+      });
 
-      ripple.style.left = `${x}px`;
-      ripple.style.top = `${y}px`;
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
+          dropdown.classList.remove('show');
+        }
+      });
+    }
 
-      setTimeout(() => ripple.remove(), 1000);
+    // Add ripple effect to desktop nav items
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('nav-ripple');
+        this.appendChild(ripple);
+
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        setTimeout(() => ripple.remove(), 1000);
+      });
     });
   });
 </script>

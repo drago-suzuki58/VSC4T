@@ -91,9 +91,126 @@
     transform: scaleX(1);
 }
 
-.nav-right {
+/* Mobile Menu Styles */
+.desktop-nav {
     display: flex;
     gap: 5px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--vscode-text);
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-dropdown {
+    /* Use visibility instead of display to allow transitions */
+    visibility: hidden;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    background-color: var(--vscode-bg);
+    border-bottom: 1px solid var(--vscode-header-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    padding: 10px 0;
+
+    /* Animation settings */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.mobile-menu-dropdown.show {
+    visibility: visible;
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.mobile-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--vscode-text);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+    background-color: var(--vscode-active);
+    border-left-color: var(--vscode-link);
+}
+
+.mobile-nav-item i {
+    width: 24px;
+    margin-right: 10px;
+    text-align: center;
+    color: var(--vscode-link);
+}
+
+.mobile-toc-section {
+    margin-top: 10px;
+    border-top: 1px solid var(--vscode-border);
+    padding-top: 10px;
+}
+
+.mobile-toc-header {
+    padding: 10px 20px;
+    font-weight: bold;
+    color: var(--vscode-text-light);
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-toc-content {
+    padding: 0 20px;
+}
+
+.mobile-toc-content ol {
+    list-style: none;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.mobile-toc-content a {
+    display: block;
+    padding: 8px 0;
+    color: var(--vscode-text);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.mobile-toc-content a:hover {
+    color: var(--vscode-link);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-brand {
+        font-size: 1em; /* Reduce font size on mobile */
+    }
 }
 
 .nav-item {
