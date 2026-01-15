@@ -18,7 +18,7 @@
     font-weight: 600;
     margin: 1.8em 0 0.9em; /* 进一步优化标题前后间距，增加前置空间 */
     position: relative;
-    padding-left: 1.5em; /* 保持左内边距适中 */
+    padding-left: 0; /* 移除左内边距，让#号跟随文本 */
     line-height: 1.4; /* 标题行高略微紧凑，但保持清晰 */
     letter-spacing: 0.01em; /* 微调标题字母间距 */
 }
@@ -55,14 +55,32 @@
 .vscode-markdown h4::before,
 .vscode-markdown h5::before,
 .vscode-markdown h6::before {
-    content: "#";
-    position: absolute;
-    left: 0.4em; /* 微调位置使视觉平衡更好 */
+    /* content defined individually below */
+    margin-right: 0.4em; /* 增加与标题文本的间距 */
     color: var(--vscode-link);
     font-weight: bold;
     font-size: 0.95em; /* 调整大小使其与文本更协调 */
     opacity: 0.75; /* 进一步降低不透明度，减少视觉干扰 */
-    transform: translateY(0.05em); /* 微调垂直位置，与标题文本更加对齐 */
+
+}
+
+.vscode-markdown h1::before {
+    content: "#";
+}
+.vscode-markdown h2::before {
+    content: "##";
+}
+.vscode-markdown h3::before {
+    content: "###";
+}
+.vscode-markdown h4::before {
+    content: "####";
+}
+.vscode-markdown h5::before {
+    content: "#####";
+}
+.vscode-markdown h6::before {
+    content: "######";
 }
 
 .vscode-markdown p {
