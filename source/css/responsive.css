@@ -1,13 +1,3 @@
-/* 隐藏滚动条但保持可滚动 */
-::-webkit-scrollbar {
-    display: none;
-}
-
-* {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
 /* 响应式设计 */
 @media screen and (max-width: 768px) {
     .vscode-container {
