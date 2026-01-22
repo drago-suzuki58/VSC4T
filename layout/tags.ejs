@@ -7,9 +7,7 @@ const groupedTags = {};
 
 sortedTags.each(function(tag) {
   let firstLetter = tag.name.charAt(0).toUpperCase();
-  if (!/^[A-Z]$/.test(firstLetter)) {
-    firstLetter = '#'; // Group non-alphabetic tags under '#'
-  }
+  // Use the character itself as the index
   if (!groupedTags[firstLetter]) {
     groupedTags[firstLetter] = [];
   }
@@ -17,9 +15,7 @@ sortedTags.each(function(tag) {
 });
 
 const sortedKeys = Object.keys(groupedTags).sort((a, b) => {
-  if (a === '#') return 1; // Put '#' at the end
-  if (b === '#') return -1;
-  return a.localeCompare(b); // Sort letters alphabetically
+  return a.localeCompare(b, 'ja'); // Sort using Japanese locale
 });
 %>
 
