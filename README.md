@@ -1,5 +1,8 @@
 # 🐱 VSCat Theme for Hexo
 
+> [!INFO]
+> これはフォークしてスタイルがカスタマイズされたバージョンのものです。オリジナルのテーマは[VSC4T](https://github.com/B143KC47/VSC4T)を参照してください。
+
 > An elegant and minimalist theme for Hexo, designed with a dark color scheme and code-inspired aesthetics.
 
 ## ⭐ Support the Project
@@ -83,11 +86,13 @@ If you find this theme useful, please consider giving it a star on GitHub! Your 
 ## 🚀 Installation
 
 1. Navigate to your Hexo site's themes directory:
+
    ```bash
    cd themes
    ```
 
 2. Clone this repository:
+
    ```bash
    git clone https://github.com/B143KC47/VSC4T.git
    ```
@@ -125,7 +130,7 @@ This theme requires the following pages. Make sure to create them:
    ```bash
    hexo new page categories
    ```
-   Then edit `source/categories/index.md` and add 
+   Then edit `source/categories/index.md` and add
    ```
    ---
    title: categories
@@ -144,10 +149,13 @@ This theme requires the following pages. Make sure to create them:
    ---
    ```
 3. Create About page:
+
    ```bash
    hexo new page about
    ```
+
    And add your personal information to `source/about/index.md`
+
    ```
    ---
    title: about
@@ -157,6 +165,7 @@ This theme requires the following pages. Make sure to create them:
    A very good simple theme
 
    ```
+
 4. Create Search page:
    ```bash
    hexo new page search
@@ -185,8 +194,8 @@ style:
   colorscheme: 'dark'
 
 # Basic Website Configuration
-url: https://b143kc47.github.io/VSC4T 
-root: /VSC4T/ 
+url: https://b143kc47.github.io/VSC4T
+root: /VSC4T/
 
 # Menu Configuration
 url: https://B143KC47.github.io/xxxxx # actual url
@@ -223,7 +232,7 @@ To switch between dark and light themes, modify the `colorscheme` setting in the
 # Style configuration
 style:
   # Color scheme ('dark' or 'white')
-  colorscheme: 'dark'  # Use 'white' for light theme
+  colorscheme: "dark" # Use 'white' for light theme
 ```
 
 ### Available Color Schemes
@@ -243,11 +252,13 @@ style:
 After changing the `colorscheme` setting:
 
 1. Clean your Hexo cache:
+
    ```bash
    hexo clean
    ```
 
 2. Regenerate your site:
+
    ```bash
    hexo generate
    ```
@@ -301,7 +312,6 @@ language: ko
 language: fr
 ```
 
-
 ## 📝 Blog Post Settings
 
 ### Creating a New Post
@@ -323,6 +333,7 @@ categories: [web-design, themes]
 
 Your post content goes here...
 ```
+
 </details>
 
 2. This will create a new markdown file in `source/_posts/your-post-title.md`
@@ -344,6 +355,7 @@ Your important content here...
 ```
 
 Sticky posts will:
+
 - Always appear at the top of post lists
 - Display a pin icon (📌) indicator
 - Maintain chronological order among other sticky posts
@@ -358,14 +370,15 @@ The theme supports custom favicon configuration with multiple formats and sizes 
 ```yaml
 # Favicon configuration
 favicon:
-  ico: /favicon.ico                    # Traditional favicon format
-  small: /favicon-16x16.png           # 16x16 PNG
-  medium: /favicon-32x32.png          # 32x32 PNG
-  large: /favicon-192x192.png         # 192x192 PNG (Android)
-  apple_touch_icon: /apple-touch-icon.png  # 180x180 (iOS)
+  ico: /favicon.ico # Traditional favicon format
+  small: /favicon-16x16.png # 16x16 PNG
+  medium: /favicon-32x32.png # 32x32 PNG
+  large: /favicon-192x192.png # 192x192 PNG (Android)
+  apple_touch_icon: /apple-touch-icon.png # 180x180 (iOS)
 ```
 
 Recommended favicon sizes:
+
 - `favicon.ico`: Multi-resolution ICO file
 - `favicon-16x16.png`: For browser tabs
 - `favicon-32x32.png`: For browser shortcuts
@@ -404,6 +417,7 @@ highlight:
 ```
 
 ## Mermaid Diagrams Support
+
 The theme support mermaid diagrams, you need to install the following plugin to make sure it can render properly:
 
 ```bash
@@ -426,10 +440,10 @@ Search is enabled by default. The search index is automatically generated when y
 
 ```yaml
 search:
-  path: search.json        # Path to generate the search index file
-  field: post             # Search field, available: post, page, all
-  content: true           # Whether to include post/page content
-  format: html            # Content format to parse, available: html, raw
+  path: search.json # Path to generate the search index file
+  field: post # Search field, available: post, page, all
+  content: true # Whether to include post/page content
+  format: html # Content format to parse, available: html, raw
 ```
 
 ### Search Keyboard Shortcuts
@@ -441,6 +455,7 @@ search:
 ### Search Filters
 
 The search interface includes filters for:
+
 - Titles
 - Content
 - Tags
@@ -471,20 +486,20 @@ Waline is a privacy-friendly comment system that allows anonymous comments witho
 ```yaml
 # Comment System Configuration
 comments:
-  provider: waline  # Options: 'waline' | 'disqus' | false
-  
+  provider: waline # Options: 'waline' | 'disqus' | false
+
   # Waline Configuration
   waline:
-    serverURL: https://your-domain.vercel.app  # Your Waline server URL
-    lang: en  # or zh-CN for Chinese
-    locale: {}  # Custom locale
+    serverURL: https://your-domain.vercel.app # Your Waline server URL
+    lang: en # or zh-CN for Chinese
+    locale: {} # Custom locale
     emoji:
       - https://unpkg.com/@waline/emojis@1.2.0/weibo
-    requiredMeta: []  # No required fields for anonymous comments
-    login: disable  # Disable login to allow anonymous comments
-    wordLimit: 0  # Comment word limit, 0 for no limit
-    pageSize: 10  # Comments per page
-    imageUploader: false  # Disable image upload
+    requiredMeta: [] # No required fields for anonymous comments
+    login: disable # Disable login to allow anonymous comments
+    wordLimit: 0 # Comment word limit, 0 for no limit
+    pageSize: 10 # Comments per page
+    imageUploader: false # Disable image upload
 ```
 
 ### Configuring Disqus
@@ -492,7 +507,7 @@ comments:
 ```yaml
 comments:
   provider: disqus
-  
+
   disqus:
     shortname: your-disqus-shortname
 ```
