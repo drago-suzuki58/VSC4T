@@ -1,6 +1,6 @@
 # 🐱 VSCat Theme for Hexo
 
-> [!INFO]
+> [!IMPORTANT]
 > これはフォークしてスタイルがカスタマイズされたバージョンのものです。オリジナルのテーマは[VSC4T](https://github.com/B143KC47/VSC4T)を参照してください。
 
 > An elegant and minimalist theme for Hexo, designed with a dark color scheme and code-inspired aesthetics.
