@@ -71,12 +71,14 @@
         font-size: 11px; /* 稍微减小字体 */
     }
 
+    .status-item.fixed-pages,
     .status-item.github {
         margin-left: 0; /* 移除左边距 */
     }
 
     /* 确保所有状态项目样式一致 */
     .status-item,
+    .status-item.fixed-pages,
     .status-item.github {
         display: flex;
         align-items: center;

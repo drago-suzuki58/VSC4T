@@ -1,0 +1,24 @@
+<%- partial('_partial/header') %>
+
+<div class="vscode-container">
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-file-alt"></i>
+        <span><%= page.title %>.md</span>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <article class="post-content">
+        <div class="post-header">
+          <h1><%= page.title %></h1>
+        </div>
+
+        <div class="post-body vscode-markdown">
+          <%- page.content %>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

@@ -134,6 +134,14 @@ h6 {
     margin-left: auto;
 }
 
+.status-item.fixed-pages {
+    margin-left: auto;
+}
+
+.status-item.fixed-pages + .status-item.github {
+    margin-left: 0;
+}
+
 .status-item.github i {
     font-size: 16px;
 }
@@ -714,6 +722,7 @@ h6 {
     }
 
     .status-item,
+    .status-item.fixed-pages,
     .status-item.github {
         margin: 0;
         font-size: 11px;
@@ -725,6 +734,7 @@ h6 {
 
     /* 确保所有页脚项目样式一致 */
     .status-item i,
+    .status-item.fixed-pages i,
     .status-item.github i {
         font-size: 12px;
         margin-right: 4px;
@@ -749,6 +759,7 @@ h6 {
     }
 
     .status-item,
+    .status-item.fixed-pages,
     .status-item.github {
         font-size: 10px;
     }

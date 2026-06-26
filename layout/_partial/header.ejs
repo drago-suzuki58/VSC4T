@@ -30,10 +30,14 @@
           <i class="fas fa-search"></i>
           <span><%- __('search') %></span>
         </a>
-        <a href="<%- config.root + 'about/' %>" class="nav-item <%= is_current('about') ? 'active' : '' %>">
-          <i class="fas fa-info-circle"></i>
-          <span><%- __('about') %></span>
-        </a>
+        <% if (theme.fixed_pages && theme.fixed_pages.length) { %>
+          <% theme.fixed_pages.filter(item => item.header).forEach(function(item) { %>
+            <a href="<%- url_for(item.path) %>" class="nav-item <%= is_current(item.path.replace(/^\//, '').replace(/\/$/, '')) ? 'active' : '' %>">
+              <i class="<%- item.icon || 'fas fa-file-alt' %>"></i>
+              <span><%- item.title %></span>
+            </a>
+          <% }) %>
+        <% } %>
       </div>
 
       <!-- Mobile Menu Toggle -->
@@ -66,10 +70,14 @@
         <i class="fas fa-search"></i>
         <span><%- __('search') %></span>
       </a>
-      <a href="<%- config.root + 'about/' %>" class="mobile-nav-item <%= is_current('about') ? 'active' : '' %>">
-        <i class="fas fa-info-circle"></i>
-        <span><%- __('about') %></span>
-      </a>
+      <% if (theme.fixed_pages && theme.fixed_pages.length) { %>
+        <% theme.fixed_pages.filter(item => item.header).forEach(function(item) { %>
+          <a href="<%- url_for(item.path) %>" class="mobile-nav-item <%= is_current(item.path.replace(/^\//, '').replace(/\/$/, '')) ? 'active' : '' %>">
+            <i class="<%- item.icon || 'fas fa-file-alt' %>"></i>
+            <span><%- item.title %></span>
+          </a>
+        <% }) %>
+      <% } %>
     </div>
 
     <!-- Mobile TOC Section (Only shown on post pages) -->
