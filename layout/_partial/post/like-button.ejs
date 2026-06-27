@@ -1,0 +1,23 @@
+<%
+  const likes = theme.likes || {};
+  const apiBaseUrl = String(likes.api_base_url || '').replace(/\/+$/, '');
+  const sourceId = String(page.source || page.slug || page.path || '')
+    .replace(/^_posts\//, '')
+    .replace(/\.md$/, '')
+    .replace(/[\\/]+/g, '-')
+    .replace(/[^A-Za-z0-9_-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .toLowerCase();
+  const postId = page.like_id || sourceId;
+%>
+
+<% if (likes.enabled && apiBaseUrl && postId) { %>
+  <div class="post-like" data-post-id="<%- postId %>" data-api-base-url="<%- apiBaseUrl %>">
+    <button class="post-like-button" type="button" aria-pressed="false">
+      <i class="far fa-heart" aria-hidden="true"></i>
+      <span class="post-like-label">いいね</span>
+      <span class="post-like-count" aria-label="いいね数">0</span>
+    </button>
+    <span class="post-like-message" aria-live="polite"></span>
+  </div>
+<% } %>

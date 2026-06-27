@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <script src="<%- url_for('js/main.js') %>"></script>
 <script src="<%- url_for('js/search.js') %>"></script>
 <script src="<%- url_for('js/theme-switch.js') %>"></script>
+<% if (page.layout === 'post' && theme.likes && theme.likes.enabled && theme.likes.api_base_url) { %>
+<script src="<%- url_for('js/like-button.js') %>"></script>
+<% } %>
 <% if (page.layout === 'categories'){ %>
 <script src="<%- url_for('js/categories-toggle.js') %>"></script>
 <% } %>

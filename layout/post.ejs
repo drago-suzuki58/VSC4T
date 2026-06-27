@@ -93,9 +93,13 @@
           </div>
         </div>
 
+        <%- partial('_partial/post/like-button') %>
+
         <div class="post-body vscode-markdown">
           <%- page.content %>
         </div>
+
+        <%- partial('_partial/post/like-button') %>
 
         <!-- 文章导航 - 只在同分类有多篇文章时显示 -->
         <%

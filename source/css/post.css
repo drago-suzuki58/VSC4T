@@ -180,6 +180,96 @@
     text-align: right;
 }
 
+.post-like {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+    color: var(--vscode-text);
+}
+
+.post-like-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 38px;
+    padding: 0.45rem 0.85rem;
+    color: var(--vscode-text);
+    background: var(--vscode-active);
+    border: 1px solid var(--vscode-border);
+    border-radius: 4px;
+    font: inherit;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.post-like-button:hover:not(:disabled),
+.post-like-button:focus-visible {
+    background: var(--vscode-highlight);
+    border-color: var(--vscode-link);
+    outline: none;
+}
+
+.post-like-button:disabled {
+    cursor: default;
+    opacity: 0.82;
+}
+
+.post-like.is-liked .post-like-button {
+    color: #f48771;
+    border-color: rgba(244, 135, 113, 0.45);
+}
+
+.post-like.is-disabled .post-like-button {
+    color: #858585;
+}
+
+.post-like-count {
+    min-width: 1.5em;
+    padding-left: 0.35rem;
+    border-left: 1px solid var(--vscode-border);
+    text-align: right;
+}
+
+.post-like-message {
+    color: #858585;
+    font-size: 0.85rem;
+}
+
+.post-like:not(.has-message) .post-like-message {
+    display: none;
+}
+
+.post-like.is-loading .post-like-button i {
+    animation: post-like-pulse 1s ease-in-out infinite;
+}
+
+@keyframes post-like-pulse {
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-like {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .post-like-button {
+        min-height: 44px;
+    }
+}
+
 /* TOC样式优化 */
 .toc {
     list-style: none;
