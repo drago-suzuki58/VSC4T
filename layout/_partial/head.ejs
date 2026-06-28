@@ -31,7 +31,7 @@
     };
     const firstValue = value => Array.isArray(value) ? value[0] : value;
     const firstImageMatch = String(page.content || '').match(/<img\s+[^>]*src=["']([^"']+)["']/i);
-    const configuredImage = firstValue(page.thumbnail || page.cover || page.image);
+    const configuredImage = firstValue(page.thumbnail || page.cover || page.image || page.error_image);
     const imagePath = configuredImage || (firstImageMatch && firstImageMatch[1]) || seo.default_image || theme.favicon?.large || theme.favicon?.medium || theme.favicon?.ico;
     const imageUrl = absoluteUrl(imagePath);
     const canonicalUrl = (page.permalink || absoluteUrl(page.path || '/')).replace(/\/index\.html$/, '/');
@@ -68,6 +68,9 @@
   %>
   <title><%= pageTitle %></title>
   <meta name="description" content="<%= description %>">
+  <% if (page.robots) { %>
+    <meta name="robots" content="<%- page.robots %>">
+  <% } %>
   <link rel="canonical" href="<%- canonicalUrl %>">
   <meta property="og:type" content="<%= isArticle ? 'article' : 'website' %>">
   <meta property="og:title" content="<%= pageTitle %>">

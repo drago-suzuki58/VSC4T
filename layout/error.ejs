@@ -1,0 +1,45 @@
+<%- partial('_partial/header') %>
+
+<div class="vscode-container error-page-container">
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-triangle-exclamation"></i>
+        <span><%= page.error_code || page.title %>.md</span>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <article class="post-content error-page">
+        <div class="error-page-text">
+          <p class="error-page-kicker">HTTP <%= page.error_code || 'Error' %></p>
+          <h1><%= page.error_title || page.title %></h1>
+          <% if (page.error_message) { %>
+            <p class="error-page-message"><%= page.error_message %></p>
+          <% } %>
+          <% if (page.content) { %>
+            <div class="error-page-body vscode-markdown">
+              <%- page.content %>
+            </div>
+          <% } %>
+          <div class="error-page-actions">
+            <a class="error-page-button" href="<%- url_for('/') %>">
+              <i class="fas fa-home"></i>
+              トップページへ戻る
+            </a>
+            <a class="error-page-link" href="<%- url_for('/search/') %>">
+              <i class="fas fa-search"></i>
+              検索する
+            </a>
+          </div>
+        </div>
+
+        <% if (page.error_image) { %>
+          <figure class="error-page-visual">
+            <img src="<%- url_for(page.error_image) %>" alt="<%= page.error_image_alt || page.title %>" loading="eager">
+          </figure>
+        <% } %>
+      </article>
+    </div>
+  </div>
+</div>

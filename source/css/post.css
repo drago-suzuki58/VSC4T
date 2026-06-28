@@ -270,6 +270,110 @@
     }
 }
 
+.error-page-container {
+    grid-template-columns: 1fr;
+}
+
+.error-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 38%);
+    align-items: center;
+    gap: 2rem;
+    min-height: 58vh;
+}
+
+.error-page-kicker {
+    color: var(--vscode-link);
+    font-family: "JetBrains Mono", Consolas, monospace;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.error-page h1 {
+    color: var(--vscode-text);
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+
+.error-page-message {
+    color: var(--vscode-text);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.error-page-body {
+    color: #858585;
+    margin-bottom: 1.5rem;
+}
+
+.error-page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.error-page-button,
+.error-page-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.error-page-button {
+    color: var(--vscode-text);
+    background: var(--vscode-active);
+    border: 1px solid var(--vscode-border);
+}
+
+.error-page-link {
+    color: var(--vscode-link);
+    border: 1px solid transparent;
+}
+
+.error-page-button:hover,
+.error-page-link:hover {
+    color: var(--vscode-text);
+    background: var(--vscode-highlight);
+    border-color: var(--vscode-link);
+}
+
+.error-page-visual {
+    margin: 0;
+}
+
+.error-page-visual img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 420px;
+    margin: 0 auto;
+    border: 1px solid var(--vscode-border);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px var(--vscode-shadow);
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .error-page {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .error-page-visual {
+        order: -1;
+    }
+}
+
 /* TOC样式优化 */
 .toc {
     list-style: none;
