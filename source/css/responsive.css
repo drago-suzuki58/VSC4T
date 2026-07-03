@@ -1,7 +1,16 @@
 /* 响应式设计 */
-@media screen and (max-width: 1180px) and (min-width: 769px) {
+@media screen and (max-width: 1180px) and (min-width: 1025px) {
     .vscode-container {
         flex-wrap: wrap;
+    }
+
+    .sidebar-explorer {
+        order: 1;
+    }
+
+    .editor-content {
+        order: 2;
+        min-width: 0;
     }
 
     .sidebar-toc {
@@ -22,15 +31,41 @@
     .sidebar-toc .section-content {
         max-height: 260px;
     }
+
+    .status-credit {
+        display: none;
+    }
 }
 
-@media screen and (max-width: 900px) and (min-width: 769px) {
-    .sidebar-explorer {
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .vscode-container {
+        display: block;
+    }
+
+    .sidebar-explorer,
+    .sidebar-toc {
         display: none;
     }
 
     .editor-content {
         width: 100%;
+        min-width: 0;
+    }
+
+    .content-area {
+        padding: 16px;
+    }
+
+    .post-content {
+        padding: 1.25rem;
+    }
+
+    .status-credit {
+        display: none;
+    }
+
+    .status-bar {
+        gap: 10px;
     }
 }
 
@@ -117,7 +152,29 @@
 
     /* 底部状态栏自适应 */
     .status-bar {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 8px 10px;
         font-size: 12px;
+        scrollbar-width: thin;
+    }
+
+    .status-item {
+        flex: 0 0 auto;
+        margin: 0;
+    }
+
+    .status-credit,
+    .status-branch {
+        display: none;
+    }
+
+    .status-item.fixed-pages {
+        margin-left: 0;
+        overflow: visible;
     }
 }
 
@@ -199,6 +256,11 @@
     }
 
     .status-bar {
+        gap: 8px;
         font-size: 11px;
+    }
+
+    .status-date {
+        display: none;
     }
 }

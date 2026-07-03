@@ -1,24 +1,24 @@
 <footer class="footer">
   <div class="status-bar">
-    <div class="status-item">
+    <div class="status-item status-branch">
       <i class="fas fa-code-branch"></i>
       master
     </div>
-    <div class="status-item">
+    <div class="status-item status-author">
       <i class="fas fa-sync"></i>
       <%= config.author %>
     </div>
-    <div class="status-item">
+    <div class="status-item status-date">
       <i class="fas fa-clock"></i>
       <%= date(Date.now(), 'YYYY-MM-DD') %>
     </div>
-    <div class="status-item">
-      Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>&nbsp;Customized By&nbsp; <a href="https://github.com/drago-suzuki58" target="_blank"> drago-suzuki58</a>
+    <div class="status-item status-credit">
+      <span>Designed by <a href="https://github.com/B143KC47" target="_blank">BlackCat</a>, customized by <a href="https://github.com/drago-suzuki58" target="_blank">drago-suzuki58</a></span>
     </div>
     <% if (theme.fixed_pages && theme.fixed_pages.length) { %>
       <div class="status-item fixed-pages">
         <% theme.fixed_pages.forEach(function(item, index) { %>
-          <% if (index > 0) { %><span>&nbsp;|&nbsp;</span><% } %>
+          <% if (index > 0) { %><span class="footer-separator">|</span><% } %>
           <a href="<%- url_for(item.path) %>"><%- item.title %></a>
         <% }) %>
       </div>

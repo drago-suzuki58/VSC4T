@@ -21,6 +21,7 @@
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    min-width: 0;
 }
 
 .vs-nav::before {
@@ -60,6 +61,13 @@
     display: flex;
     align-items: center;
     position: relative;
+    min-width: 0;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    min-width: 0;
 }
 
 .nav-brand {
@@ -72,6 +80,10 @@
     font-weight: 500;
     padding: 0 15px;
     position: relative;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* 添加品牌悬停效果 */
@@ -94,7 +106,9 @@
 /* Mobile Menu Styles */
 .desktop-nav {
     display: flex;
+    flex-wrap: nowrap;
     gap: 5px;
+    min-width: 0;
 }
 
 .mobile-menu-btn {
@@ -199,7 +213,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .desktop-nav {
         display: none;
     }
@@ -210,6 +224,7 @@
 
     .nav-brand {
         font-size: 1em; /* Reduce font size on mobile */
+        max-width: calc(100vw - 96px);
     }
 }
 
@@ -240,6 +255,7 @@
         var(--vscode-bg-light)
     );
     border-bottom: none;
+    white-space: nowrap;
 }
 
 .nav-item::before {
@@ -330,6 +346,7 @@
     color: var(--vscode-text);
     font-size: 0.9em;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .nav-item span::after {
@@ -386,7 +403,7 @@
 }
 
 /* 响应式设计优化 */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav-item span {
         display: none;
     }
