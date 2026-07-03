@@ -1,4 +1,39 @@
 /* 响应式设计 */
+@media screen and (max-width: 1180px) and (min-width: 769px) {
+    .vscode-container {
+        flex-wrap: wrap;
+    }
+
+    .sidebar-toc {
+        order: 3;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        box-sizing: border-box;
+        position: static;
+        border-left: 0;
+        border-top: 1px solid var(--vscode-border);
+    }
+
+    .sidebar-toc .explorer-section {
+        height: auto;
+    }
+
+    .sidebar-toc .section-content {
+        max-height: 260px;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 769px) {
+    .sidebar-explorer {
+        display: none;
+    }
+
+    .editor-content {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .vscode-container {
         flex-direction: column;
